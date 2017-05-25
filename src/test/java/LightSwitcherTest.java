@@ -21,6 +21,7 @@ public class LightSwitcherTest {
         Assert.assertEquals(result2, expected2);
         Assert.assertEquals(result3, expected3);
         Assert.assertEquals(result4, expected4);
+
     }
 
     @Test
