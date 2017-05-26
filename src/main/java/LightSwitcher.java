@@ -56,39 +56,39 @@ public class LightSwitcher {
      * NOTE: An integer has more than 8 bits, so find a way to only return the rightmost 8 bits.
      */
     public static int flipAllSwitches(int switches) {
-        return (~switches);
+        return (~switches & 0b11111111);
     }
-//
-//    /**
-//     * Return the state of a switch in a given position.
-//     * Count switches from 0, and from right to left.
-//     * So, a byte reads 76543210
-//     */
-//    public static int getSwitchPositionAt(int switches, int position) {
-//
-//    }
-//
-//    /**
-//     * Move all the the bits to the right `count` places.
-//     */
-//    public static int moveRightBy(int switches, int count) {
-//
-//    }
-//
-//    /**
-//     * Move all the the bits to the left `count` places.
-//     * NOTE: An integer has more than 8 bits, so find a way to only return the rightmost 8 bits.
-//     */
-//    public static int moveLeftBy(int switches, int count){
-//
-//    }
-//
-//    /**
-//     * This is written for you to help with debugging.  If you call System.out.println(viewSwitches(switches)),
-//     * you can see the rightmost 8 bits of a given integer.
-//     */
-//    public static String viewSwitches(int switches) {
-//
-//        return String.format("%8s", Integer.toBinaryString((switches & 0b11111111))).replace(' ', '0');
-//    }
+
+    /**
+     * Return the state of a switch in a given position.
+     * Count switches from 0, and from right to left.
+     * So, a byte reads 76543210
+     */
+    public static int getSwitchPositionAt(int switches, int position) {
+        return ((switches >> position) & 00000001);
+    }
+
+    /**
+     * Move all the the bits to the right `count` places.
+     */
+    public static int moveRightBy(int switches, int count) {
+        return switches >> count;
+    }
+
+    /**
+     * Move all the the bits to the left `count` places.
+     * NOTE: An integer has more than 8 bits, so find a way to only return the rightmost 8 bits.
+     */
+    public static int moveLeftBy(int switches, int count){
+        return (switches << count) & 0b11111111;
+    }
+
+    /**
+     * This is written for you to help with debugging.  If you call System.out.println(viewSwitches(switches)),
+     * you can see the rightmost 8 bits of a given integer.
+     */
+    public static String viewSwitches(int switches) {
+
+        return String.format("%8s", Integer.toBinaryString((switches & 0b11111111))).replace(' ', '0');
+    }
 }
