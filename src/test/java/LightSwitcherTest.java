@@ -1,11 +1,18 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class LightSwitcherTest {
-    private int baseByte = 0b10101010;
-    private int flippedBaseByte = 0b01010101;
+    private int baseByte;
+    private int flippedBaseByte;
+
+    @Before
+    public void setUp() {
+        baseByte = 0b10101010;
+        flippedBaseByte = 0b01010101;
+    }
 
     @Test
     public void testTurnOnSwitches() {
@@ -85,10 +92,11 @@ public class LightSwitcherTest {
         int result2 = LightSwitcher.flipAllSwitches(flippedBaseByte);
         int result3 = LightSwitcher.flipAllSwitches(0b11111111);
         int result4 = LightSwitcher.flipAllSwitches(0b00000000);
-        Assert.assertEquals(result1, 0b01010101);
-        Assert.assertEquals(result2, 0b10101010);
-        Assert.assertEquals(result3, 0b00000000);
-        Assert.assertEquals(result4, 0b11111111);
+        System.out.println(0b01010101);
+        Assert.assertEquals(0b01010101, result1);
+        Assert.assertEquals(0b10101010, result2);
+        Assert.assertEquals(0b00000000, result3);
+        Assert.assertEquals(0b11111111, result4);
     }
 
     @Test
