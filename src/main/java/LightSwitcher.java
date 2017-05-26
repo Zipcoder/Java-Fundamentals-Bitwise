@@ -62,7 +62,7 @@ public class LightSwitcher {
      */
     public static int flipAllSwitches(int switches) {
 
-        return ~(switches & 0b11111111);
+        return ~switches & 0b11111111;
     }
 
     /**
@@ -72,7 +72,7 @@ public class LightSwitcher {
      */
     public static int getSwitchPositionAt(int switches, int position) {
 
-        return 0;
+        return ((switches >> position) & 00000001);
     }
 
     /**
@@ -80,7 +80,7 @@ public class LightSwitcher {
      */
     public static int moveRightBy(int switches, int count) {
 
-        return 0;
+        return switches >> count;
     }
 
     /**
@@ -89,7 +89,7 @@ public class LightSwitcher {
      */
     public static int moveLeftBy(int switches, int count){
 
-        return 0;
+        return (switches << count) & 0b11111111;
     }
 
     /**
