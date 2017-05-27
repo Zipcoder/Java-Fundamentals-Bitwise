@@ -104,6 +104,7 @@ public class LightSwitcherTest {
         Assert.assertEquals(1, LightSwitcher.getSwitchPositionAt(0b11111110, 7));
     }
 
+
     @Test
     public void testMoveRightBy() {
         int result1 = LightSwitcher.moveRightBy(baseByte, 1);
