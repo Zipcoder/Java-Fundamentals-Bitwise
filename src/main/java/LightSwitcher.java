@@ -55,7 +55,7 @@ public class LightSwitcher {
      * NOTE: An integer has more than 8 bits, so find a way to only return the rightmost 8 bits.
      */
     public static int flipAllSwitches(int switches) {
-        return ~switches;
+        return (~switches & 0b11111111);
     }
 
     /**
